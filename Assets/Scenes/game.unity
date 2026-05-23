@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 639786576}
   - component: {fileID: 639786575}
   m_Layer: 0
-  m_Name: Camera Shot
+  m_Name: entrance Cam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,12 +646,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639786574}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.00000008870401, y: 0.965926, z: -0.2588186, w: -0.00000033104862}
+  m_LocalPosition: {x: 0, y: 5, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1679244458}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &696009100
 GameObject:
@@ -1686,51 +1686,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1489243520}
-  - component: {fileID: 1489243519}
-  - component: {fileID: 1489243521}
+  - component: {fileID: 1489243522}
+  - component: {fileID: 1489243523}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: cameraChanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1489243519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489243518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameCreator.Runtime.Core::GameCreator.Runtime.VisualScripting.Trigger
-  m_Instructions:
-    m_Instructions:
-    - rid: 7089510778323337351
-  m_TriggerEvent:
-    rid: 7089510778323337372
-  references:
-    version: 2
-    RefIds:
-    - rid: 7089510778323337351
-      type: {class: InstructionLogicRunConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Conditions:
-          m_Property:
-            rid: 7089510778323337352
-        m_WaitToFinish: 0
-    - rid: 7089510778323337352
-      type: {class: GetGameObjectConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Conditions: {fileID: 1489243521}
-    - rid: 7089510778323337372
-      type: {class: EventOnFixedUpdate, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data: 
 --- !u!4 &1489243520
 Transform:
   m_ObjectHideFlags: 0
@@ -1746,7 +1710,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1489243521
+--- !u!114 &1489243522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1755,69 +1719,163 @@ MonoBehaviour:
   m_GameObject: {fileID: 1489243518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721fb82976bce47f38247178301b66c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: GameCreator.Runtime.Core::GameCreator.Runtime.VisualScripting.Conditions
-  m_Branches:
-    m_Branches:
-    - rid: 7089510778323337323
+  m_EditorClassIdentifier: GameCreator.Runtime.Core::GameCreator.Runtime.VisualScripting.Trigger
+  m_Instructions:
+    m_Instructions:
+    - rid: 7089510779027980367
+    - rid: 7089510779027980406
+  m_TriggerEvent:
+    rid: 7089510779027980289
   references:
     version: 2
     RefIds:
-    - rid: 7089510778323337323
-      type: {class: Branch, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 7089510779027980289
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Button:
+          m_Input:
+            rid: 7089510779027980399
+        m_MinDistance:
+          m_MinDistance: 0
+          m_To:
+            m_Property:
+              rid: 7089510779027980291
+          m_Radius: 2
+          m_Offset: {x: 0, y: 0, z: 0}
+    - rid: 7089510779027980291
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7089510779027980367
+      type: {class: InstructionLogicCheckConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Breakpoint: 0
         m_IsEnabled: 1
-        m_Description: 
-        m_ConditionList:
+        m_Conditions:
           m_Conditions:
-          - rid: 7089510778323337324
-          - rid: 7089510778323337326
-        m_InstructionList:
-          m_Instructions:
-          - rid: 7089510778323337368
-    - rid: 7089510778323337324
+          - rid: 7089510779027980368
+    - rid: 7089510779027980368
       type: {class: ConditionCameraShotActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Breakpoint: 0
         m_IsEnabled: 1
-        m_Sign: 1
+        m_Sign: 0
         m_Shot:
           m_Property:
-            rid: 7089510778323337325
-    - rid: 7089510778323337325
+            rid: 7089510779027980369
+    - rid: 7089510779027980369
       type: {class: GetGameObjectShot, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
         m_Shot: {fileID: 1016884547}
-    - rid: 7089510778323337326
-      type: {class: ConditionInputIsKeyPress, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 7089510779027980399
+      type: {class: InputButtonKeyboardPress, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Sign: 1
         m_Key: 18
-    - rid: 7089510778323337368
+    - rid: 7089510779027980406
       type: {class: InstructionCameraShotChange, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Camera:
           m_Property:
-            rid: 7089510778323337371
+            rid: 7089510779027980407
         m_Shot:
           m_Property:
-            rid: 7089510778323337370
+            rid: 7089510779027980408
         m_Easing: 3
         m_Duration: 0
         m_WaitToComplete: 0
-    - rid: 7089510778323337370
+    - rid: 7089510779027980407
+      type: {class: GetGameObjectCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7089510779027980408
       type: {class: GetGameObjectShot, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
         m_Shot: {fileID: 1016884547}
-    - rid: 7089510778323337371
-      type: {class: GetGameObjectShotMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
+--- !u!114 &1489243523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489243518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameCreator.Runtime.Core::GameCreator.Runtime.VisualScripting.Trigger
+  m_Instructions:
+    m_Instructions:
+    - rid: 7089510779027980409
+    - rid: 7089510779027980412
+  m_TriggerEvent:
+    rid: 7089510779027980402
+  references:
+    version: 2
+    RefIds:
+    - rid: 7089510779027980402
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Button:
+          m_Input:
+            rid: 7089510779027980405
+        m_MinDistance:
+          m_MinDistance: 0
+          m_To:
+            m_Property:
+              rid: 7089510779027980404
+          m_Radius: 2
+          m_Offset: {x: 0, y: 0, z: 0}
+    - rid: 7089510779027980404
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
+    - rid: 7089510779027980405
+      type: {class: InputButtonKeyboardPress, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Key: 15
+    - rid: 7089510779027980409
+      type: {class: InstructionLogicCheckConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Conditions:
+          m_Conditions:
+          - rid: 7089510779027980410
+    - rid: 7089510779027980410
+      type: {class: ConditionCameraShotActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Sign: 0
+        m_Shot:
+          m_Property:
+            rid: 7089510779027980411
+    - rid: 7089510779027980411
+      type: {class: GetGameObjectShot, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
+      data:
+        m_Shot: {fileID: 639786575}
+    - rid: 7089510779027980412
+      type: {class: InstructionCameraShotChange, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Camera:
+          m_Property:
+            rid: 7089510779027980413
+        m_Shot:
+          m_Property:
+            rid: 7089510779027980414
+        m_Easing: 3
+        m_Duration: 0
+        m_WaitToComplete: 0
+    - rid: 7089510779027980413
+      type: {class: GetGameObjectCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7089510779027980414
+      type: {class: GetGameObjectShot, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
+      data:
+        m_Shot: {fileID: 639786575}
 --- !u!1 &1613767356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,8 +2109,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 5, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 639786576}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 180, z: 0}
 --- !u!1 &1945428597
@@ -2376,3 +2433,4 @@ SceneRoots:
   - {fileID: 1679244458}
   - {fileID: 1016884548}
   - {fileID: 1489243520}
+  - {fileID: 639786576}
